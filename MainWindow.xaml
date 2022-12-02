@@ -8,20 +8,27 @@
         Title="WPFZIP" Height="360" Width="640"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize"
         Background="Transparent"
-        AllowsTransparency="True"
-        >
-    <Border CornerRadius="20" Background="#3E2C41">
+        AllowsTransparency="True">
+    <Window.Resources>
+            <ResourceDictionary Source="Resources.xaml" />
+    </Window.Resources>
+    <Border CornerRadius="20" Background="{StaticResource b2}">
         <Grid ShowGridLines="True">
-        
         <Grid.RowDefinitions>
-            <RowDefinition Height="25"/>
+            <RowDefinition Height="30"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+
+        <Button x:Name="Exit" 
+                Style="{StaticResource btnStyle}"    
+                Content="X" Width="30" 
+                HorizontalAlignment="Right"
+                Click="Button_Exit">
+        </Button>
 
         </Grid>
     </Border>

@@ -15,12 +15,9 @@ namespace WPFZIP
             InitializeComponent();
         }
 
-        // private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        // {
-        //     if (e.ChangedButton == MouseButton.Left) 
-        //         this.DragMove();
-        // }
-
+        public void Button_Exit(object sender, RoutedEventArgs e) {
+            this.Close();
+        }
 
     }
 }
