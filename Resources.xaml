@@ -28,10 +28,32 @@
     </Style>
 
     <Style x:Key="LabelStyle" TargetType="{x:Type TextBlock}">
-        <Setter Property="FontSize" Value="24"/>
-        <Setter Property="Foreground" Value="{StaticResource b3}"></Setter>
+        <Setter Property="FontSize" Value="28"/>
+        <Setter Property="Foreground" Value="{StaticResource b4}"></Setter>
         <Setter Property="FontFamily" Value="font/#ALBA"/>
     </Style>
 
+    <Style x:Key="textBox" TargetType="{x:Type TextBox}">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Background" Value="{StaticResource b2}"></Setter>
+        <Setter Property="Foreground" Value="{StaticResource b4}"></Setter>
+        <Setter Property="FontFamily" Value="Consolas"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                    <Border CornerRadius="10" Background="{StaticResource b2}" BorderThickness="1">
+                    <ScrollViewer x:Name="PART_ContentHost"
+                                Focusable="false"
+                                VerticalAlignment="Center"
+                                HorizontalScrollBarVisibility="Hidden"
+                                VerticalScrollBarVisibility="Hidden"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+     <Image x:Key="Upload" Source="Icons/upload.png" Stretch="Fill" Width="40" Height="40" />
+     <Image x:Key="Download" Source="Icons/download.png" Stretch="Fill" Width="40" Height="40" />
 
 </ResourceDictionary>

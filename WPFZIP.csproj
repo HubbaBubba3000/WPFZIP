@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -6,5 +6,13 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Icons/download.png" />
+    <Resource Include="Icons/upload.png" />
+    <Content Include="font/ALBA.TTF">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>  
+    </Content>
+  </ItemGroup>
 
 </Project>
