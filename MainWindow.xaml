@@ -13,14 +13,13 @@
     <Window.Resources>
         <ResourceDictionary Source="Resources.xaml" />
     </Window.Resources>
-    <Border CornerRadius="20">
+    <Border CornerRadius="20" MouseDown="WindowMove">
         <Border.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                 <GradientStop Color="{StaticResource c1}" Offset="0.1"/>
                 <GradientStop Color="{StaticResource c2}" Offset="0.9"/>
             </LinearGradientBrush>
         </Border.Background>
-
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="120"/>
@@ -36,48 +35,34 @@
             <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource LabelStyle}"
                         Text="WINZIP" HorizontalAlignment="Left" Margin="20,10,0,0"/>
 
-            <Button  Grid.Column="2" Grid.Row="0" Width="30" Style="{StaticResource BtnStyle}"
-                    HorizontalAlignment="Right" Click="Exit" Margin="10">
+            <Button  Grid.Column="2" Grid.Row="0" Height="30" Width="30" Style="{StaticResource BtnStyle}"
+                    HorizontalAlignment="Right" Click="Exit" ToolTip="Close Window">
                     <Viewbox Stretch="Fill" Width="18" Height="18">
                         <Grid>
                             <Path Fill="{StaticResource b4}" Data="{StaticResource ExitIcon}"/>
                         </Grid>
                     </Viewbox>
-                    <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="20"/>
-                        </Style>
-                    </Button.Resources>
             </Button>
 
-            <TextBox x:Name="Name" VerticalAlignment="Center" Margin="80,30,80,0" 
-                    Style="{StaticResource textBox}" Height="48" MaxHeight="250"
-                    Grid.Row="1" Grid.ColumnSpan="3" >
-                Enter Archive Name
+            <Button x:Name="af" Grid.Row="1" Grid.Column="0" Margin="30,30,0,0"
+                    Width="64" Height="48" FontFamily="font/#ALBA" ToolTip="Add files"
+                    Content="Add" Style="{StaticResource BtnStyle}" Click="AddFiles"/>
+
+            <TextBox x:Name="Name" Margin="120,30,60,0"  Grid.Row="1"
+                    Style="{StaticResource textBox}" Height="48"
+                    Grid.ColumnSpan="3" MaxHeight="250">
+                Archive
             </TextBox>
 
-                <Button Width="80" Height="80" Grid.Column="0" Grid.Row="2"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center" 
-                        Style="{StaticResource BtnStyle}"
-                        Content="{StaticResource Upload}">
-                    <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="45"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
-                <Button Width="80" Height="80" Grid.Column="2" Grid.Row="2"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center" 
-                        Style="{StaticResource BtnStyle}"
-                        Content="{StaticResource Download}">
-                    <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="45"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
+                <Button Width="80" Height="80" Grid.Column="0" Click="Extract"
+                        HorizontalAlignment="Right" Grid.Row="2"
+                        Style="{StaticResource BtnStyle}" ToolTip="extract archive"
+                        Content="{StaticResource Upload}"/>
+                <Button Width="80" Height="80" Grid.Column="2" Click="Compair"
+                        HorizontalAlignment="Left" Grid.Row="2"
+                        Style="{StaticResource BtnStyle}" ToolTip="add to archive"
+                        Content="{StaticResource Download}"/>
+
         </Grid>
     </Border>
 </Window>

@@ -12,8 +12,6 @@
 	l22.378,22.379L1.369,52.861c-1.826,1.826-1.826,4.785,0,6.611c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369
 	l22.502-22.502l22.501,22.502c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369
 	C61.42,57.647,61.42,54.687,59.595,52.861z</Geometry>
-	<Geometry x:Key="UploadIcon">M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4</Geometry>
-	<Geometry x:Key="DownloadIcon">M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4</Geometry>
 
     <SolidColorBrush Color="{StaticResource c1}" x:Key="b1" />
     <SolidColorBrush Color="{StaticResource c2}" x:Key="b2" />
@@ -21,22 +19,67 @@
     <SolidColorBrush Color="{StaticResource c4}" x:Key="b4" />
 
     <Style x:Key="BtnStyle" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="Transparent"></Setter>
-        <Setter Property="Foreground" Value="Transparent" />
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource b3}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="20"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"
+                        Height="{TemplateBinding Height}"
+                        Width="{TemplateBinding Width}" >
+                        <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource b2}"/>
+                <Setter Property="Foreground" Value="{StaticResource b4}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                    <Setter Property="Background" Value="{StaticResource b3}"/>
+                </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="ToolTip">
+        <Setter Property = "HorizontalOffset" Value="10"/>
+        <Setter Property = "VerticalOffset" Value="10"/>
+        <Setter Property = "Background" Value="{StaticResource b3}"/>
+        <Setter Property = "Foreground" Value="{StaticResource b4}"/>
+        <Setter Property = "FontSize" Value="14"/>
+        <Setter Property = "Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToolTip">
+                    <Border BorderThickness="0" CornerRadius="20"
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <Style x:Key="LabelStyle" TargetType="{x:Type TextBlock}">
         <Setter Property="FontSize" Value="28"/>
-        <Setter Property="Foreground" Value="{StaticResource b4}"></Setter>
+        <Setter Property="Foreground" Value="{StaticResource b4}"/>
         <Setter Property="FontFamily" Value="font/#ALBA"/>
     </Style>
 
     <Style x:Key="textBox" TargetType="{x:Type TextBox}">
         <Setter Property="FontSize" Value="18"/>
-        <Setter Property="Background" Value="{StaticResource b2}"></Setter>
-        <Setter Property="Foreground" Value="{StaticResource b4}"></Setter>
+        <Setter Property="Background" Value="{StaticResource b2}"/>
+        <Setter Property="Foreground" Value="{StaticResource b4}"/>
         <Setter Property="FontFamily" Value="Consolas"/>
         <Setter Property="Template">
             <Setter.Value>
