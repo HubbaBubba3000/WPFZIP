@@ -3,13 +3,13 @@ Simple archive creator based on WPF.
 
 How it works :
 
-  to Compair files:
+  to Compare files:
   
     - Click Add button to add files 
     
     - Write archive name in textbox
     
-    - Click Compair Button to Compress files
+    - Click Compare Button to Compress files
     
   Archive with Selected files will be in program folder
   
